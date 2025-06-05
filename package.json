@@ -1,0 +1,54 @@
+{
+
+  "name": "fyp",
+
+  "version": "1.0.0",
+
+  "main": "server.js",
+
+  "type": "module",
+
+  "scripts": {
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "start": "nodemon server"
+
+  },
+
+  "author": "",
+
+  "license": "ISC",
+
+  "description": "",
+
+  "dependencies": {
+
+    "@google/generative-ai": "^0.24.1",
+
+    "cors": "^2.8.5",
+
+    "crypto": "^1.0.1",
+
+    "crypto-js": "^4.2.0",
+
+    "dotenv": "^16.5.0",
+
+    "express": "^5.1.0",
+
+    "express-validator": "^7.2.1",
+
+    "firebase": "^11.8.1",
+
+    "firebase-admin": "^13.4.0",
+
+    "nodemailer": "^7.0.3",
+
+    "nodemon": "^3.1.10",
+
+    "openai": "^5.0.1"
+
+  }
+
+}
+
