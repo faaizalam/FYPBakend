@@ -6,7 +6,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import crypto from "crypto";
 config();
-// import service from "./service.json" with { type: "json" };
+import service from "./service.json" with { type: "json" };
 import admin from "firebase-admin";
 
 admin.initializeApp({
@@ -36,8 +36,8 @@ app.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { currentInterviewId, emotions, confidenceLevel } = req.body;
-
+    const { currentInterviewId, emotions, confidenceLevel,average } = req.body;
+  console.log(average)
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -46,15 +46,17 @@ Generate a consistent, clean, professional HTML report for an interview using th
 Interview ID: ${currentInterviewId}
 Confidence Level: ${confidenceLevel}%
 Emotions: ${JSON.stringify(emotions, null, 2)}
+Before And After Report :${average}
 
 Structure:
 1. Title: "Interview Report"
 2. Section: Interview ID
 3. Table: Emotion and count
 4. Section: Confidence Level
-5. Section: Assessment (Overall rating: Fine, Satisfactory, Good, Excellent)
-6. Section: Reasoning
-7. Section: Further Considerations
+5. Section: Before And After Report
+6. Section: Assessment (Overall rating: Fine, Satisfactory, Good, Excellent)
+7. Section: Reasoning
+8. Section: Further Considerations
 
 Use clean HTML and inline CSS. Match this structure and design:
 
@@ -84,6 +86,8 @@ Use clean HTML and inline CSS. Match this structure and design:
 
     <h3 style="color: #333;">Confidence Level</h3>
     <p>${confidenceLevel}%</p>
+    <h3 style="color: #333;">Before And After Report</h3>
+    <p>${average}%</p>
 
     <h3 style="color: #333;">Assessment</h3>
     <p><strong>Overall Rating:</strong> (AI decides from emotions + confidence)</p>
