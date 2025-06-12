@@ -37,7 +37,7 @@ app.post(
     }
 
     const { currentInterviewId, emotions, confidenceLevel,average } = req.body;
-  console.log(average)
+ 
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
